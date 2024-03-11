@@ -1,0 +1,17 @@
+# flash images onto hikey960 board
+
+## information about current directory
+optee_android_manifest_v390dirty_TZRAM128M: used to store images copied from remote server, remote
+repo of optee_android_manifest is based on v3.9.0, it compiles and Android 9.0 boot successfully.
+Optee 3.9.0 works. (note for optee_android_manifest v3.8.3, the android does not work)
+
+TZRAM128M refers to the change of OPTEE RAM size from 16MB to 128MB. it works.
+The HelloWorld TA is modified to test the memory allocation from 50MB to 10MB, all succeed.
+
+## information about flash script
+
+flash-all.sh : default flash script, requires directory structure
+flash-all-simplied.sh : modified flash script, directly flash all images within current directory 
+flash-tee-simplied.sh : modified flash script, directly flash optee related images within current directory, do not flash time-consuming userdata.img vendor.img system.img. 
+
+Note: may need to modify config file as the default directory info inside it are not correct.
